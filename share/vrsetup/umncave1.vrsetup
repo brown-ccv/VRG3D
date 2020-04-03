@@ -1,0 +1,65 @@
+# VRG3D VR Setup Configuration File
+
+Description           University of Minnesota Interactive Visualization Lab CAVE
+
+# Set to 1 to connect to a vrg3d-server for synchronization and events
+ClusterClient         1
+ClusterServerHost     localhost
+
+
+# Name of a VRG3D configuration file for input devices (leave blank
+# for no devices other than kbd and mouse)
+#InputDevicesFile      umn-cave-devices.cfg
+
+#This file sets up the left and right walls. We use a single tile for each wall.
+
+# These correspond to G3D::GWindow::Settings
+WindowWidth           2550
+WindowHeight          1300
+WindowX               1921
+WindowY               0
+WindowCenter          0
+WindowRGBBits         8
+WindowAlphaBits       8
+WindowDepthBits       24
+WindowStencilBits     8
+WindowFSAASamples     1
+WindowFullScreen      0
+WindowAsychronous     1
+WindowStereo          1
+WindowRefreshRate     120
+WindowResizable       0
+WindowAllowMaximize   0
+WindowFramed          0
+WindowCaption         VRG3D Application
+WindowMouseVisible    0
+
+
+
+NumTiles 2
+
+Tile1TopLeft           (-4, 4,4)
+Tile1TopRight          (-4, 4,-4)
+Tile1BotLeft           (-4,-4,4)
+Tile1BotRight          (-4,-4,-4)
+Tile1NearClip          0.01
+Tile1FarClip           1000.0
+Tile1FlipStereo        0
+Tile1InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile1ViewportX         0
+Tile1ViewportY         0
+Tile1ViewportW         1280
+Tile1ViewportH         1300
+
+Tile2TopLeft           (4,4,-4)
+Tile2TopRight          (4,4,4)
+Tile2BotLeft           (4,-4,-4)
+Tile2BotRight          (4,-4,4)
+Tile2NearClip          0.01
+Tile2FarClip           1000.0
+Tile2FlipStereo        0
+Tile2InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile2ViewportX         1280
+Tile2ViewportY         0
+Tile2ViewportW         1270
+Tile2ViewportH         1300

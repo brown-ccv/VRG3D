@@ -1,0 +1,7 @@
+@INCLUDE = Doxyfile.local
+PROJECT_NAME = VRG3D
+PROJECT_NUMBER = 
+OUTPUT_DIRECTORY = doc
+HAVE_DOT = NO
+INPUT = HorizontalStencil.h CheckerboardStencil.H ConfigMap.H DisplayTile.H Event.H EventNet.H G3DOperators.H ICubeXDevice.H ISenseDirect.H InputDevice.H Midi.H MouseToTracker.H ProjectionVRCamera.H SpaceNavDevice.H SynchedSystem.H TrackDClient.H VRApp.H VRG3D.H VRPNAnalogDevice.H VRPNButtonDevice.H VRPNTrackerDevice.H documentation.H OSXWindow.h SDLWindow.h ../demo/vrg3d-demo.cpp
+GENERATE_TAGFILE = doc/VRG3D.tag

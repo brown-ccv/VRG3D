@@ -1,0 +1,168 @@
+        -----------------  vrg3d/INSTALL_WINDOWS.log  -----------------
+
+
+       Version pre.5                                  March 15, 2011
+
+
+################################################################################
+#  This is an example setup of vrg3d on Windows.
+#  Do not blindly type in these commands.
+#  Your environment and desired setup can differ greatly from this example.
+#...............................................................................
+
+
+# Download vrg3d and the build kit.
+#
+> cd  c:\work                          # Create and go into your work area.
+> svn export  https://vrg3d.svn.sourceforge.net/svnroot/vrg3d
+
+
+
+# Set up Sdl:  Download and install it; verify the install.
+#
+> dir/b  %HOME%\import\sdl\sdl_1.2.14_cl8\include\SDL
+begin_code.h
+     :
+
+
+> dir/b  %HOME%\import\sdl\sdl_1.2.14_cl8\lib\SDL*
+SDL.dll
+SDL.lib
+SDLmain.lib
+
+
+
+# Set up Glut:  Download and install it; verify the install.
+#
+> dir/b  %HOME%\import\glut\glut_3.7.6_WIN32\GL
+glut.h
+
+
+> dir/b  %HOME%\import\glut\glut_3.7.6_WIN32\glut32*
+glut32.dll
+glut32.lib
+
+
+
+# Install g3d to:  %HOME%\import\g3d\g3d_8.01_cl9\...
+#
+> dir/b  %HOME%\import\g3d\g3d_8.01_cl9      # Make sure g3d looks okay.
+bin
+include
+lib
+
+> dir/b  %HOME%\import\g3d\g3d_8.01_cl9\include
+G3D
+GLG3D
+
+
+
+# Set up Vrpn:  Download and install it; verify the install.
+#
+> dir/b  %HOME%\import\vrpn\vrpn_7.22_cl9\include\*.h
+vrpn_3DConnexion.h
+        :
+
+
+> dir/b  %HOME%\import\vrpn\vrpn_7.22_cl9\lib
+quat.lib
+vrpn.lib
+
+
+
+#  Build and install vrg3d.
+#
+> cd  %HOME%\vrg3d\vrg3d
+vrg3d/vrg3d> python  configure.py -g3d   %HOME%\import\g3d\g3d_8.01_cl9      ^
+                                  -vrpn  %HOME%\import/vrpn\vrpn_7.26_cl9    ^
+                                  -sdl   %HOME%\import\sdl\sdl_1.2.14_cl8    ^
+                                  -glut  %HOME%\import\glut\glut_3.7.6_WIN32 ^
+                                  -vrg3d %HOME%\import\vrg3d\vrg3d_pre
+ G3d        %HOME%\import\g3d\g3d_8.01_gcc4
+ Vrpn       %HOME%\import\vrpn\vrpn_7.26_gcc4
+ Sdl        %HOME%\import\sdl\sdl_1.2.14_cl8
+ Glut       %HOME%\import\glut\glut_3.7.6_WIN32
+ Make       %HOME%\vrg3d\g.utility_1.0
+ Vrg3d      %HOME%\import\vrg3d/vrg3d_example
+ Compiler   C:\Program Files\Microsoft Visual Studio 9.0\VC\bin\cl.exe
+*****  Sucessfully created:  configure.make  *****
+   You can now run:
+      make  allclean     # Remove prior build results.
+      make  all          # Build vrg3d, demo, and server.
+      make  install      # Install vrg3d, demo, and server.
+
+
+vrg3d/vrg3d> make  all                    # Build vrg3d, the server, and demo.
+     :
+
+vrg3d/vrg3d> dir/b    obj\lib*            # See if the libraries got built.
+libvrg3d.a
+libvrg3dd.a
+
+
+vrg3d/vrg3d> dir/b  ..\server\obj         # See if the server got built.
+vrg3d_server.exe
+vrg3d_server.exe.manifest
+vrg3d_server.og
+vrg3d_server.oo
+vrg3d_serverd.exe
+vrg3d_serverd.exe.manifest
+vrg3d_serverd.ilk
+vrg3d_serverd.pdb
+
+vrg3d/vrg3d> dir/b  ..\demo\obj           # See if the demo got built.
+vrg3d_demo.exe
+vrg3d_demo.exe.manifest
+vrg3d_demo.og
+vrg3d_demo.oo
+vrg3d_demod.exe
+vrg3d_demod.exe.manifest
+vrg3d_demod.ilk
+vrg3d_demod.pdb
+
+
+> make  install                           # Install everything.
+     :
+
+> dir/b  %HOME%\import\vrg3d\lib\vrg3d    # See if the libraries got installed.
+vrg3d.lib
+vrg3d-cl9d.lib
+vrg3d-cl9d.lib
+
+> dir/b  %HOME%\import\vrg3d\include\vrg3d  # See if the headers got installed.
+CheckerboardStencil.h
+ConfigMap.h
+DisplayTile.h
+documentation.h
+Event.h
+EventNet.h
+G3DOperators.h
+ICubeXDevice.h
+InputDevice.h
+ISenseDirect.h
+Midi.h
+MouseToTracker.h
+OSXWindow.h
+ProjectionVRCamera.h
+SpaceNavDevice.h
+SynchedSystem.h
+TrackDClient.h
+VRApp.h
+VRG3D.h
+VRPNAnalogDevice.h
+VRPNButtonDevice.h
+VRPNTrackerDevice.h
+
+> dir/b  %HOME%\import\vrg3d\vrg3d          # See if the programs got installed.
+vrg3d_demo.exe
+vrg3d_demod.exe
+vrg3d_demod.pdb
+vrg3d_server.exe
+vrg3d_serverd.exe
+vrg3d_serverd.pdb
+
+
+> obj\vrg3d_demo.exe                        # With any luck the demo will run.
+
+
+      -----------------  end  vrg3d/INSTALL_WINDOWS.log  -----------------

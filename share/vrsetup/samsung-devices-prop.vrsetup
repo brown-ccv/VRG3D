@@ -1,0 +1,37 @@
+
+# TNG3B Device -- 8 Digital Inputs and 8 Analog Inputs
+
+InputDevices+=                           TNG3BDigital
+TNG3BDigital_Type			 VRPNButtonDevice
+TNG3BDigital_VRPNButtonDeviceName	 Tng0@tcp:lespaul.cs.umn.edu:3886
+TNG3BDigital_EventsToGenerate		 TNG_Btn1 TNG_Btn2 TNG_Btn3 TNG_Btn4 TNG_Btn5 TNG_Btn6 TNG_Btn7 TNG_Btn8
+
+InputDevices+=                           TNG3BAnalog
+TNG3BAnalog_Type			 VRPNAnalogDevice
+TNG3BAnalog_VRPNAnalogDeviceName	 Tng0@tcp:lespaul.cs.umn.edu:3886
+TNG3BAnalog_EventsToGenerate		 TNG_An1 TNG_An2 TNG_An3 TNG_An4 TNG_An5 TNG_An6 TNG_An7 TNG_An8 
+
+
+# Polhemus Fastrak 6-DOF tracking device, up to 4 trackers attached
+
+InputDevices+=                        Fastrak
+Fastrak_Type			      VRPNTrackerDevice
+Fastrak_VRPNTrackerDeviceName         Fastrak0@tcp:lespaul.cs.umn.edu:3886
+Fastrak_EventsToGenerate	      Head_Tracker Hand_Tracker Brush_Tracker Fastrak4_Tracker
+Fastrak_ConvertLHtoRH                 0
+Fastrak_IgnoreZeroes                  1
+Fastrak_WaitForNewReportInPoll        0
+Fastrak_TrackerUnitsToRoomUnitsScale  3.048
+Fastrak_DeviceToRoom                  ((0,-1,0,-1.7), (0,0,-1,-1.7), (1,0,0,2.25), (0,0,0,1))
+
+
+# To account for mounting on the glasses and other props
+Head_Tracker_PropToTracker      ((0,0,-1,0), (0,1,0,0), (1,0,0,0.18), (0,0,0,1))
+Hand_Tracker_PropToTracker	((1,0,0,0), (0,1,0,0), (0,0,1,0), (0,0,0,1))
+Brush_Tracker_PropToTracker	((1,0,0,0), (0,1,0,0), (0,0,1,0), (0,0,0,1))
+Fastrak4_Tracker_PropToTracker  ((1,0,0,0), (0,1,0,0), (0,0,1,0), (0,0,0,1))
+
+Hand_Tracker_FinalOffset        ((1,0,0,0.1), (0,1,0,1.33), (0,0,1,-2.25), (0,0,0,1))
+Brush_Tracker_FinalOffset       ((1,0,0,0), (0,1,0,1.33), (0,0,1,-2.25), (0,0,0,1))
+
+

@@ -1,0 +1,135 @@
+         -----------------  vrg3d/INSTALL_LINUX.log  -----------------
+
+
+     Version pre.5                                  March 15, 2011
+
+
+################################################################################
+#  This is an example setup of vrg3d on Linux.
+#  Do not blindly type in these commands.
+#  Your environment and desired setup can differ greatly from this example.
+#...............................................................................
+
+
+# Download vrg3d and the build kit.
+#
+> cd $HOME
+> svn export  https://vrg3d.svn.sourceforge.net/svnroot/vrg3d
+
+
+
+# Check to see that sdl is installed.
+#
+> ls  /usr/include/SDL/*.h
+/usr/include/SDL/SDL.h
+          :
+
+
+> ls  /usr/lib/libSDL*
+/usr/lib/libSDL.a
+          :
+
+
+# Check to see that Glut is installed.
+#
+> ls  /usr/include/GL/*.h
+usr/include/GL/freeglut.h
+          :
+
+> ls  /usr/lib/libglut*
+/usr/lib/libglut.a
+          :
+
+
+# Install g3d to:  $HOME/import/g3d/g3d_8_gcc4/...
+#
+> ls  $HOME/import/g3d/g3d_8_gcc4        # Make sure g3d looks okay.
+bin/  include/  lib/
+
+> ls  $HOME/import/g3d/g3d_8_gcc4/include
+G3D/  GLG3D/
+
+
+
+# Set up Vrpn:  Download and install it; verify the install.
+#
+> ls  $HOME/import/vrpn/vrpn_7.26_gcc4/include/*.h
+vrpn_3DConnexion.h
+      :
+
+
+> ls  $HOME/import/vrpn/vrpn_7.26_gcc4/lib/lib*.a
+libquat.a
+libvrpn.a
+libvrpnatmel.a
+libvrpnserver.a
+
+
+
+#  Build and install vrg3d.
+#
+> cd  $HOME/vrg3d/vrg3d
+vrg3d/vrg3d> configure.py -g3d   $HOME/import/g3d/g3d_8_gcc4        \
+                          -vrpn  $HOME/import/vrpn/vrpn_7.26_gcc4   \
+                          -vrg3d $HOME/import/vrg3d/vrg3d_pre
+ G3d        /home/$USER/import/g3d/g3d_8_gcc4
+ Vrpn       /home/$USER/import/vrpn/vrpn_7.26_gcc4
+ Sdl        /usr
+ Glut       /usr
+ Vrg3d      /home/$USER/import/vrg3d/vrg3d_example
+ Compiler   /usr/bin/g++-4.3
+*****  Sucessfully created:  configure.make  *****
+   You can now run:
+      make  allclean     # Remove prior build results.
+      make  all          # Build vrg3d, demo, and server.
+      make  install      # Install vrg3d, demo, and server.
+
+
+vrg3d/vrg3d> make  all                # Build vrg3d, the server, and demo.
+     :
+
+
+vrg3d/vrg3d> ls  obj/lib*             # See if the libraries got built.
+libvrg3d.a     libvrg3d_g.a
+
+vrg3d/vrg3d> ls  ../server/obj        # See if the server got built.
+vrg3d_server*    vrg3d_server.oo  vrg3d_server_g*   vrg3d_server.og*
+
+vrg3d/vrg3d> ls  ../demo/obj          # See if the demo got built.
+vrg3d_demo*    vrg3d_demo.oo  vrg3d_demo_g*  vrg3d_demo.og
+
+
+vrg3d/vrg3d> make  install            # Install everything.
+   :
+
+
+# See if the libraries got installed.
+#
+vrg3d/vrg3d> ls  $HOME/import/vrg3d/vrg3d_pre/lib/vrg3d
+libvrg3d-gcc4.a  libvrg3d-gcc4_g.a  libvrg3d-gcc4_p.a
+
+
+# See if the headers got installed.
+#
+vrg3d/vrg3d> ls  $HOME/import/vrg3d/vrg3d_pre/include/vrg3d
+CheckerboardStencil.h  ICubeXDevice.h    ProjectionVRCamera.h  VRPNAnalogDevice.h
+ConfigMap.h            ISenseDirect.h    SpaceNavDevice.h      VRPNButtonDevice.h
+DisplayTile.h          InputDevice.h     SynchedSystem.h       VRPNTrackerDevice.h
+Event.h                Midi.h            TrackDClient.h        documentation.h
+EventNet.h             MouseToTracker.h  VRApp.h
+G3DOperators.h         OSXWindow.h       VRG3D.h
+
+
+# See if the programs got installed.
+#
+vrg3d/vrg3d> ls  $HOME/import/vrg3d/vrg3d_pre/include/vrg3d
+vrg3d_demo*  vrg3d_demo_g*  vrg3d_server*  vrg3d_server_g*
+
+
+# With any luck the demo will run.
+#
+cd  $HOME/vrg3d/demo
+vrg3d/demo> obj/vrg3d_demo-gcc4
+
+
+   -----------------  end  vrg3d/vrg3d/INSTALL_LINUX.log  -----------------

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Echos the architecture of the current machine.
+
+case `uname` in
+  AIX*)
+    echo "aix"
+    ;;
+  CYGWIN*)
+    echo "WIN32"
+    ;;
+  IRIX*)
+    echo "sgi"
+    ;;
+  Linux*)
+    echo "linux"
+    ;;
+  SunOS*)
+    echo "sol"
+    ;;
+  Darwin*)
+    echo "OSX"
+    ;;
+  *)
+    echo "unknown"
+    ;;
+esac
+
+
+exit 0

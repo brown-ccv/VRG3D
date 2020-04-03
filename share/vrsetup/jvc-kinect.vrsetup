@@ -1,0 +1,51 @@
+# VRG3D VR Setup Configuration File
+
+Description           A standard non-VR desktop window
+
+
+# Set to 1 to connect to a vrg3d-server for synchronization and events
+ClusterClient         0
+ClusterServerHost     127.0.0.1
+
+
+# Name of a VRG3D configuration file for input devices (leave blank
+# for no devices other than kbd and mouse)
+#InputDevicesFile     kinect-skeleton.cfg 
+InputDevicesFile     kinect-prop.cfg 
+
+
+# These correspond to G3D::GWindow::Settings
+WindowWidth           1920
+WindowHeight          1080
+WindowX               1920
+WindowY               0
+WindowCenter          0
+WindowRGBBits         8
+WindowAlphaBits       8
+WindowDepthBits       8
+WindowStencilBits     8
+WindowFSAASamples     16
+WindowFullScreen      0
+WindowAsychronous     1
+WindowStereo          0
+WindowRefreshRate     75
+WindowResizable       1
+WindowAllowMaximize   1
+WindowFramed          0
+WindowCaption         VRG3D Application
+WindowMouseVisible    1
+
+NumTiles 1
+
+# Setup the VRG3D::DisplayTile for this display
+TileAutoAdjustToResolution 1
+TileRenderType        HORIZONTAL_STEREO
+# 53" wide by 30" tall
+Tile1TopLeft           (-2.20835, 1.25, 0.0)
+Tile1TopRight          ( 2.20835, 1.25, 0.0)
+Tile1BotLeft           (-2.20835,-1.25, 0.0)
+Tile1BotRight          ( 2.20835,-1.25, 0.0)
+Tile1NearClip          0.01
+Tile1FarClip           100.0
+Tile1FlipStereo        0
+Tile1InitialHeadFrame  ((1,0,0,0), (0,1,0,-0.15), (0,0,1,3.5), (0,0,0,1))

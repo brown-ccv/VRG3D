@@ -1,0 +1,44 @@
+if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  # TODO Mac OS X specific code
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  # Linux specific code
+  find_path(LIBSPACENAV_INCLUDE_DIR spnav.h
+    HINTS $ENV{G}/src/libspacenav/libspnav-0.2.2 $ENV{SPACENAV_INCLUDE_DIR})
+
+  find_library(LIBSPACENAV_OPT_LIBRARY NAMES libspnav.a spnav
+    HINTS $ENV{G}/src/libspacenav/libspnav-0.2.2/build/${GBUILDSTR}/Release $ENV{SPACENAV_LIB_DIR})
+
+  find_library(LIBSPACENAV_DEBUG_LIBRARY NAMES libspnav.a spnav
+    HINTS $ENV{G}/src/libspacenav/libspnav-0.2.2/build/${GBUILDSTR}/Debug $ENV{SPACENAV_LIB_DIR})
+
+  set(LIBSPACENAV_ALL_LIBRARIES "")
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+ # TODO Windows specific code
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+set(LIBSPACENAV_INCLUDE_DIRS ${LIBSPACENAV_INCLUDE_DIR} )
+
+#if only opt is found, use it for both
+if(LIBSPACENAV_OPT_LIBRARY AND LIBSPACENAV_DEBUG_LIBRARY)
+  set(LIBSPACENAV_OPT_LIBRARIES optimized ${LIBSPACENAV_OPT_LIBRARY} )
+  set(LIBSPACENAV_DEBUG_LIBRARIES debug ${LIBSPACENAV_DEBUG_LIBRARY} )
+elseif(LIBSPACENAV_OPT_LIBRARY AND NOT LIBSPACENAV_DEBUG_LIBRARY)
+  set(LIBSPACENAV_OPT_LIBRARIES optimized ${LIBSPACENAV_OPT_LIBRARY} )
+  set(LIBSPACENAV_DEBUG_LIBRARIES debug ${LIBSPACENAV_OPT_LIBRARY} )
+#if only debug is found, use it for both
+elseif(LIBSPACENAV_DEBUG_LIBRARY AND NOT LIBSPACENAV_OPT_LIBRARY)
+  set(LIBSPACENAV_OPT_LIBRARIES optimized ${LIBSPACENAV_DEBUG_LIBRARY} )
+  set(LIBSPACENAV_DEBUG_LIBRARIES debug ${LIBSPACENAV_DEBUG_LIBRARY} )
+endif()
+
+include(FindPackageHandleStandardArgs)
+# handle the QUIETLY and REQUIRED arguments and set LIBXML2_FOUND to TRUE
+# if all listed variables are TRUE
+find_package_handle_standard_args(LIBSPACENAV  DEFAULT_MSG
+                                  LIBSPACENAV_OPT_LIBRARY LIBSPACENAV_DEBUG_LIBRARY LIBSPACENAV_INCLUDE_DIR)
+
+mark_as_advanced(LIBSPACENAV_INCLUDE_DIR LIBSPACENAV_OPT_LIBRARY LIBSPACENAV_DEBUG_LIBRARY)

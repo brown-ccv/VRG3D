@@ -1,0 +1,92 @@
+# VRG3D VR Setup Configuration File
+
+Description           University of Minnesota Interactive Visualization Lab CAVE
+
+
+# Name of a VRG3D configuration file for input devices (leave blank
+# for no devices other than kbd and mouse)
+InputDevicesFile      umn-cave-devices.cfg
+
+
+# !!!!! Note on blending:
+# Changed WindowHeight and all the ViewportH lines below to be 1300 rather than 1280 to fill the entire screen
+# we have about 20 pixels worth of overlap in the images in the middle of the screen.  Eventually, we'll do
+# some nice blending but for now just stretching the size of the window to make it 20 pixels taller.
+#WindowHeight          1280
+
+# These correspond to G3D::GWindow::Settings
+WindowWidth           5120
+WindowHeight          1300
+WindowX               1920
+WindowY               0
+WindowCenter          0
+WindowRGBBits         8
+WindowAlphaBits       8
+WindowDepthBits       8
+WindowStencilBits     8
+WindowFSAASamples     1
+WindowFullScreen      1
+WindowAsychronous     1
+WindowStereo          1 
+WindowRefreshRate     120
+WindowResizable       0
+WindowAllowMaximize   0
+WindowFramed          0
+WindowCaption         VRG3D Application
+WindowMouseVisible    0
+
+
+
+NumTiles 4
+
+Tile1TopLeft           (-4, 4, 4)
+Tile1TopRight          (-4, 4,-4)
+Tile1BotLeft           (-4,-4, 4)
+Tile1BotRight          (-4,-4,-4)
+Tile1NearClip          0.01
+Tile1FarClip           1000.0
+Tile1FlipStereo        0
+Tile1InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile1ViewportX         0
+Tile1ViewportY         0
+Tile1ViewportW         1280
+Tile1ViewportH         1300
+
+Tile2TopLeft           (-4, 4,-4)
+Tile2TopRight          ( 4, 4,-4)
+Tile2BotLeft           (-4,-4,-4)
+Tile2BotRight          ( 4,-4,-4)
+Tile2NearClip          0.01
+Tile2FarClip           1000.0
+Tile2FlipStereo        0
+Tile2InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile2ViewportX         0
+Tile2ViewportY         0
+Tile2ViewportW         1280
+Tile2ViewportH         1300
+
+Tile3TopLeft           (4, 4,-4)
+Tile3TopRight          (4, 4, 4)
+Tile3BotLeft           (4,-4,-4)
+Tile3BotRight          (4,-4, 4)
+Tile33NearClip          0.01
+Tile3FarClip           1000.0
+Tile3FlipStereo        0
+Tile3InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile3ViewportX         1280
+Tile3ViewportY         0
+Tile3ViewportW         1280
+Tile3ViewportH         1300
+
+Tile4TopLeft           (-4,-4,-4)
+Tile4TopRight          (4,-4,-4)
+Tile4BotLeft           (-4,-4,4)
+Tile4BotRight          (4,-4,4)
+Tile4NearClip          0.01
+Tile4FarClip           1000.0
+Tile4FlipStereo        0
+Tile4InitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+Tile4ViewportX         1280
+Tile4ViewportY         0
+Tile4ViewportW         1280
+Tile4ViewportH         1300

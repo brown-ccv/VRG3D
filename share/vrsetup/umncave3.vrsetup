@@ -1,0 +1,49 @@
+# VRG3D VR Setup Configuration File
+
+Description           University of Minnesota Interactive Visualization Lab CAVE
+
+# Set to 1 to connect to a vrg3d-server for synchronization and events
+ClusterClient         1
+ClusterServerHost     localhost
+
+
+# Name of a VRG3D configuration file for input devices (leave blank
+# for no devices other than kbd and mouse)
+#InputDevicesFile      umn-cave-devices.cfg
+
+
+# This file sets up the floor of the cave
+
+# These correspond to G3D::GWindow::Settings
+WindowWidth           1280
+WindowHeight          1300
+WindowX               5760
+WindowY               0
+WindowCenter          0
+WindowRGBBits         8
+WindowAlphaBits       8
+WindowDepthBits       24
+WindowStencilBits     8
+WindowFSAASamples     1
+WindowFullScreen      0
+WindowAsychronous     1
+WindowStereo          1
+WindowRefreshRate     120
+WindowResizable       0
+WindowAllowMaximize   0
+WindowFramed          0
+WindowCaption         VRG3D Application
+WindowMouseVisible    0
+
+TileTopLeft           (-4,-4,-4)
+TileTopRight          (4,-4,-4)
+TileBotLeft           (-4,-4,4)
+TileBotRight          (4,-4,4)
+TileNearClip          0.01
+TileFarClip           1000.0
+TileFlipStereo        0
+TileInitialHeadFrame  ((1,0,0,0), (0,1,0,0), (0,0,1,1), (0,0,0,1))
+TileViewportX         0
+TileViewportY         0
+TileViewportW         1280
+TileViewportH         1300

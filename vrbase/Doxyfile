@@ -1,0 +1,6 @@
+PROJECT_NAME = vrbase
+PROJECT_NUMBER = 
+OUTPUT_DIRECTORY = doc
+HAVE_DOT = NO
+INPUT = CommonInc.H ConfigVal.H CovarianceMatrix.H DefaultMouseNav.H EventFilter.H EventMgr.H Fsa.H FsaHelper.H GfxMgrCallbacks.H GfxMgr.H HaloLineSet.H LoadingScreen.H Markers.H ObjParser.H PlyParser.H Shadows.H SMesh.H SpaceNavHCI.H StringUtils.H TexPerFrameSMesh.H TextFileReader.H TouchBackground.H TouchButtonCallback.H TouchButton.H TouchManager.H TouchWidget.H ViewerHCI.H VRBaseApp.H VRBase.H VRML2Parser.H ply.h 
+GENERATE_TAGFILE = doc/vrbase.tag
